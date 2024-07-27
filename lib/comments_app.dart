@@ -1,3 +1,4 @@
+import 'package:comments_app/features/splash/presentation/splash.dart';
 import 'package:flutter/material.dart';
 
 class CommentsApp extends StatelessWidget {
@@ -11,7 +12,7 @@ class CommentsApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: Scaffold(),
+      home: const SplashScreen(),
     );
   }
 }

@@ -22,5 +22,20 @@ final firebaseAuthServiceProvider = Provider<FirebaseAuthService>.internal(
 );
 
 typedef FirebaseAuthServiceRef = ProviderRef<FirebaseAuthService>;
+String _$firestoreServiceHash() => r'd7a14e8468436c9c7998493c91fea3a6f785c799';
+
+/// See also [firestoreService].
+@ProviderFor(firestoreService)
+final firestoreServiceProvider = Provider<FirestoreService>.internal(
+  firestoreService,
+  name: r'firestoreServiceProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$firestoreServiceHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef FirestoreServiceRef = ProviderRef<FirestoreService>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

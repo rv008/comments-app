@@ -5,7 +5,8 @@ class FirebaseAuthService {
 
   Stream<User?> get authStateChanges => _auth.authStateChanges();
 
-  Future<User?> createUserWithEmailAndPassword(String email, String password) async {
+  Future<User?> createUserWithEmailAndPassword(
+      String email, String password) async {
     try {
       UserCredential credential = await _auth.createUserWithEmailAndPassword(
         email: email,
@@ -25,7 +26,8 @@ class FirebaseAuthService {
     }
   }
 
-  Future<User?> signInWithEmailAndPassword(String email, String password) async {
+  Future<User?> signInWithEmailAndPassword(
+      String email, String password) async {
     try {
       UserCredential credential = await _auth.signInWithEmailAndPassword(
         email: email,
@@ -37,6 +39,8 @@ class FirebaseAuthService {
         throw Exception('No user found for that email.');
       } else if (e.code == 'wrong-password') {
         throw Exception('Wrong password provided for that user.');
+      } else if (e.code == 'invalid-credential') {
+        throw Exception('Invalid login credentials');
       } else {
         throw Exception(e.message);
       }

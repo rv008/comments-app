@@ -34,11 +34,10 @@ class LoginScreen extends ConsumerWidget {
     });
 
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.grey.shade100,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: Text(
           'Comments',
           style: Theme.of(context).textTheme.titleLarge!.copyWith(

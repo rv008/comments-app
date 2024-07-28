@@ -14,6 +14,7 @@ class CommentsApp extends StatelessWidget {
           primary: Colors.indigo,
         ),
         useMaterial3: true,
+        scaffoldBackgroundColor: Colors.grey.shade100,
         appBarTheme: const AppBarTheme(
           centerTitle: false,
         ),

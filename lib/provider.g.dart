@@ -51,5 +51,22 @@ final networkProvider = Provider<Dio>.internal(
 );
 
 typedef NetworkRef = ProviderRef<Dio>;
+String _$remoteConfigServiceHash() =>
+    r'4592fc1d0905f7c8802230b8e5a225480e473ec6';
+
+/// See also [remoteConfigService].
+@ProviderFor(remoteConfigService)
+final remoteConfigServiceProvider =
+    Provider<FirebaseRemoteConfigService>.internal(
+  remoteConfigService,
+  name: r'remoteConfigServiceProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$remoteConfigServiceHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef RemoteConfigServiceRef = ProviderRef<FirebaseRemoteConfigService>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

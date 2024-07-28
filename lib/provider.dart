@@ -1,5 +1,6 @@
 import 'package:comments_app/utils/authentication_service.dart';
 import 'package:comments_app/utils/firestore_service.dart';
+import 'package:comments_app/utils/remote_config_service.dart';
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -22,4 +23,9 @@ Dio network(NetworkRef ref) {
   dio.options = BaseOptions(baseUrl: 'https://jsonplaceholder.typicode.com');
 
   return dio;
+}
+
+@Riverpod(keepAlive: true)
+FirebaseRemoteConfigService remoteConfigService(RemoteConfigServiceRef ref) {
+  return FirebaseRemoteConfigService();
 }

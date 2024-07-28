@@ -1,4 +1,5 @@
 import 'package:comments_app/features/comments/domain/entity/comment_entity.dart';
+import 'package:comments_app/features/comments/presentation/widgets/email_mask.dart';
 import 'package:comments_app/features/comments/presentation/widgets/label_text.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,7 @@ class CommentCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 LabelValueText(label: 'Name : ', value: '${comment.name}'),
-                LabelValueText(label: 'Email : ', value: '${comment.email}'),
+                EmailMaskWidget(email: '${comment.email}'),
                 const SizedBox(height: 3),
                 Text(
                   '${comment.body}',

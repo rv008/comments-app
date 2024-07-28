@@ -2,6 +2,7 @@ import 'package:comments_app/features/comments/domain/entity/comment_entity.dart
 import 'package:comments_app/features/comments/presentation/widgets/comment_card.dart';
 import 'package:comments_app/features/comments/presentation/provider/comment.dart';
 import 'package:comments_app/provider.dart';
+import 'package:comments_app/widgets/dialog.dart';
 import 'package:comments_app/widgets/loader.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -20,8 +21,12 @@ class CommentScreen extends ConsumerWidget {
         title: const Text('Comments'),
         actions: [
           IconButton(
-            onPressed: () {
-              ref.read(firebaseAuthServiceProvider).signOut();
+            onPressed: () async {
+              CustomDialog.of(context).confirmLogout().then((confirm) {
+                if (confirm == true) {
+                  ref.read(firebaseAuthServiceProvider).signOut();
+                }
+              });
             },
             icon: const Icon(Icons.logout_outlined),
           ),
